@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "05ae98fc-d41c-4992-a678-7ddf5a8c44c3",
+		"name": "restaurant_reservation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30526103"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"JohnDoe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"root\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"root\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzgyNTMyM2RhNmJkNmIwMTY3NjA5MiIsInVzZXJuYW1lIjoiQmFwdGlzdGVIYXJidXoiLCJpYXQiOjE3NDExNjk5NzUsImV4cCI6MTc0MTI1NjM3NX0.rAglA96EFFJdLAZ9CfzjK7r6ZoAY7wJColyWOSoJl9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reservationDate\": \"2025-03-06T19:00:00Z\",\n  \"numberOfGuests\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reservation/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reservation",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_reservation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzgyNTMyM2RhNmJkNmIwMTY3NjA5MiIsInVzZXJuYW1lIjoiQmFwdGlzdGVIYXJidXoiLCJpYXQiOjE3NDExNjk5NzUsImV4cCI6MTc0MTI1NjM3NX0.rAglA96EFFJdLAZ9CfzjK7r6ZoAY7wJColyWOSoJl9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reservationDate\": \"2025-03-06T19:00:00Z\",\n  \"numberOfGuests\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reservation/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reservation",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify-reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzgyNTMyM2RhNmJkNmIwMTY3NjA5MiIsInVzZXJuYW1lIjoiQmFwdGlzdGVIYXJidXoiLCJpYXQiOjE3NDExNjk5NzUsImV4cCI6MTc0MTI1NjM3NX0.rAglA96EFFJdLAZ9CfzjK7r6ZoAY7wJColyWOSoJl9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reservationDate\": \"2025-03-06T20:00:00Z\",\n  \"numberOfGuests\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reservation/update/{{id_reservation}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reservation",
+						"update",
+						"{{id_reservation}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzgxMjk5YjJhM2MwOWNkYTQ3YTlmYSIsInVzZXJuYW1lIjoiSm9obkRvZSIsImlhdCI6MTc0MTE2NTI2MCwiZXhwIjoxNzQxMjUxNjYwfQ.86tvAourtNUJdIyhzS_GWmue_J6A9p0V7aOXNkcW12c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reservationDate\": \"2025-03-06T20:00:00Z\",\n  \"numberOfGuests\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/reservation/delete/{{id_reservation}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"reservation",
+						"delete",
+						"{{id_reservation}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id_user",
+			"value": "67c825323da6bd6b01676092",
+			"type": "string"
+		},
+		{
+			"key": "id_reservation",
+			"value": "67c825673da6bd6b01676096",
+			"type": "string"
+		}
+	]
+}
